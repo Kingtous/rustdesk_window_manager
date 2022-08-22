@@ -23,7 +23,7 @@ public class WindowManagerPlugin: NSObject, FlutterPlugin {
         }
     }
     
-    private var _inited: Bool = false
+    private static var _inited: Bool = false
     private var windowManager: WindowManager = WindowManager()
     
     public init(_ registrar: FlutterPluginRegistrar, _ channel: FlutterMethodChannel) {
