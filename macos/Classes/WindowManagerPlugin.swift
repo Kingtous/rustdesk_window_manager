@@ -5,7 +5,7 @@ public class WindowManagerPlugin: NSObject, FlutterPlugin {
     public static var RegisterGeneratedPlugins:((FlutterPluginRegistry) -> Void)?
     
     public static func register(with registrar: FlutterPluginRegistrar) {
-        if (_inited) {
+        if (self._inited) {
             // multi window trick
             return;
         }
@@ -23,7 +23,7 @@ public class WindowManagerPlugin: NSObject, FlutterPlugin {
         }
     }
     
-    private static var _inited: Bool = false
+    private var _inited: Bool = false
     private var windowManager: WindowManager = WindowManager()
     
     public init(_ registrar: FlutterPluginRegistrar, _ channel: FlutterMethodChannel) {
