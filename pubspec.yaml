@@ -16,8 +16,11 @@ dependencies:
   flutter:
     sdk: flutter
 
-  path: ^1.8.2
-  screen_retriever: ^0.1.4
+  path: ^1.8.0
+  screen_retriever: #^0.1.2
+    git:
+      url: https://github.com/Kingtous/rustdesk_screen_retriever.git
+      ref: 406b9b0
 
 dev_dependencies:
   dependency_validator: ^3.0.0
