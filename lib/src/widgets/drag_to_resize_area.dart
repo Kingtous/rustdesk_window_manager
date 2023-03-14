@@ -96,35 +96,6 @@ class DragToResizeArea extends StatelessWidget {
   final EdgeInsets resizeEdgeMargin;
   final List<ResizeEdge>? enableResizeEdges;
 
-  Widget _buildDragToResizeEdge(
-    ResizeEdge resizeEdge, {
-    MouseCursor cursor = SystemMouseCursors.basic,
-    double? width,
-    double? height,
-  }) {
-    if (enableResizeEdges != null && !enableResizeEdges!.contains(resizeEdge)) {
-      return Container();
-    }
-    return Container(
-      width: width,
-      height: height,
-      color: resizeEdgeColor,
-      child: Listener(
-        onPointerDown: (_) => windowManager.startResizing(resizeEdge),
-        child: MouseRegion(
-          cursor: cursor,
-          child: GestureDetector(
-            onDoubleTap: () => (Platform.isWindows &&
-                    (resizeEdge == ResizeEdge.top ||
-                        resizeEdge == ResizeEdge.bottom))
-                ? windowManager.maximize(vertically: true)
-                : null,
-          ),
-        ),
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     getOffstage(ResizeEdge resizeEdge) =>
